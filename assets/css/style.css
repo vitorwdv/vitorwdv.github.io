@@ -28,12 +28,13 @@ body {
 	max-width: 600px;
 	margin: auto;
     font-size: 1.75rem;
-    font-weight: 300;
-    letter-spacing: 0.05rem;
+    font-weight: 700;
+    letter-spacing: 0.01rem;
     margin: 0 auto;
 }
 
 #userName p {
+    color: rgb(220, 220, 220);
 	max-width: 600px;
 	margin: auto;
 	font-size: 1rem;
@@ -56,19 +57,19 @@ i.fa {
 .header {
 	display: block;
     background-color: rgba(0, 0, 0, 0);
-    color: #fff;
+    color: rgb(220, 220, 220);
     text-align: center;
     margin-bottom: 8px;
     padding: 2px;
     text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 1000;
 }
 
 .footer {
 	display: block;
     background-color: rgba(0, 0, 0, 0);
-    color: #fff;
+    color: rgb(220, 220, 220);
     text-align: center;
     margin-bottom: 8px;
     padding: 2px;
@@ -79,7 +80,7 @@ i.fa {
 
 .link {
     display: block;
-    background-color: rgba(10, 10, 30, 0.5);
+    background-color: rgba(30, 30, 30, 0.8);
     color: #fff;
     text-align: center;
     margin-bottom: 15px;
@@ -92,7 +93,7 @@ i.fa {
 }
 
 .link:hover {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     color: #000000;
     border: none;
 }

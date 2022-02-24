@@ -1,0 +1,98 @@
+/* Style Settings */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+body {
+    background: url('../files/background.jpg');
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+#userPhoto {
+    width: 125px;
+    height: 125px;
+    display: block;
+    margin: 25px auto 10px;
+    border-radius: 20%;
+}
+
+#userName {
+    color: #fff;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+#userName h1 {
+	max-width: 600px;
+	margin: auto;
+    font-size: 1.75rem;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+    margin: 0 auto;
+}
+
+#userName p {
+	max-width: 600px;
+	margin: auto;
+	font-size: 1rem;
+    font-weight: 300;
+    margin-top: 5px;
+    text-transform: none;
+}
+
+i.fa {
+    margin-right: 0.3rem;
+}
+
+#links {
+    max-width: 600px;
+    width: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.header {
+	display: block;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    text-align: center;
+    margin-bottom: 8px;
+    padding: 2px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.footer {
+	display: block;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+    text-align: center;
+    margin-bottom: 8px;
+    padding: 2px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.link {
+    display: block;
+    background-color: rgba(10, 10, 30, 0.5);
+    color: #fff;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 300;
+    transition: all .25s cubic-bezier(.08, .59, .29, .99);
+    border-radius: 25px;
+}
+
+.link:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #000000;
+    border: none;
+}

@@ -4,11 +4,13 @@
 
 body {
     background-image: linear-gradient(to bottom, #202020, #404040, #505050); /* url('../files/background.jpg'); */
-    background-size: 100vw 100vh;
-    background-color: #000000;
+    background-size: 100vw 100vh; /* cover */
+    background-color: #505050;
+    background-repeat: no-repeat;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
 }
+
 
 #userPhoto {
     width: 225px;

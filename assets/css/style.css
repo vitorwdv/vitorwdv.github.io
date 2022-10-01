@@ -3,8 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
 
 body {
-    background-image: linear-gradient(180deg, #202020, #303030, #404040, #505050); /* url('../files/background.jpg'); */
-    background-size: cover; /* cover; 100vw 100vh */
+    background-image: linear-gradient(180deg, #101010, #202020, #303030, #353535, #404040, #454545, #505050); /* url('../files/background.jpg'); */
+    background-size: cover; /* 100vw 100vh */
     background-color: #505050;
     background-repeat: no-repeat;
     font-family: 'Open Sans', sans-serif;

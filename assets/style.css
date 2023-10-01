@@ -1,0 +1,109 @@
+/* Style Settings */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+body {
+    background-image: linear-gradient(180deg, #9fca90, #67ae90, #45958f, #36878d, #21738b, #1f5985, #293d77); 
+	/* 
+	grayscale: #101010, #202020, #303030, #353535, #404040, #454545, #505050
+	sns_crest: #9fca90, #67ae90, #45958f, #36878d, #21738b, #1f5985, #293d77
+	sns_crest_sliced: #63ac90, #53a18f, #398a8d, #22748b, #1c6187, #205483, #293e78
+	sns_mako: #38aaac, #3393a8, #347fa3, #36689e, #3b5699, #3e4d92, #403975
+	*/
+    background-size: cover;
+    background-color: #293d77;
+    background-repeat: no-repeat;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+
+#userPhoto {
+    width: 225px;
+    height: 225px;
+    display: block;
+    margin: 25px auto 10px;
+    border-radius: 20%;
+}
+
+#userName {
+    color: #fff;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+#userName h1 {
+	max-width: 600px;
+	margin: auto;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.01rem;
+    margin: 0 auto;
+}
+
+#userName p {
+    color: rgb(240, 240, 240);
+	max-width: 600px;
+	margin: auto;
+	font-size: 1rem;
+    font-weight: 300;
+    margin-top: 5px;
+    text-transform: none;
+}
+
+i.fa {
+    margin-right: 0.3rem;
+}
+
+#links {
+    max-width: 600px;
+    width: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.header {
+	display: block;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(240, 240, 240);
+    text-align: center;
+    margin-bottom: 8px;
+    padding: 2px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 1000;
+}
+
+.footer {
+	display: block;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(240, 240, 240);
+    text-align: center;
+    margin-bottom: 8px;
+    padding: 2px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.link {
+    display: block;
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #fff;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 300;
+    transition: all .25s cubic-bezier(.08, .59, .29, .99);
+    border-radius: 25px;
+}
+
+.link:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000000;
+    border: none;
+}

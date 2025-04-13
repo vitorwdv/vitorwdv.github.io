@@ -15,24 +15,56 @@
 
 <body>
 	<div id="profile">
-	        <img id="userPhoto" src="assets/files/profile.png" alt="Profile picture">
-	        <div id="userName">
+		<img id="userPhoto" src="assets/files/profile.png" alt="Profile picture">
+		<div id="userName">
 			<h1>Vitor Werner de Vargas</h1>
 			<p>Engenheiro eletricista ⚡<br>Mestre em computação aplicada 💻<br>Gosto de tecnologia, pizza e câmbio flutuante</p>
-	        </div>
-    	</div>
+		</div>
+		<button class="lang-button" onclick="toggleLanguage()">EN / PT</button>
+	</div>
 	<div id="links">
 		<a class="header" target="_blank"> Pessoal </a>
 		<a class="link" href="https://www.instagram.com/vitorwdv/" target="_blank"><i aria-hidden="true" class="fa-brands fa-instagram"></i> Instagram </a>
 		<a class="header" target="_blank"> Profissional </a>
-	        <a class="link" href="https://www.linkedin.com/in/vitorwdv/" target="_blank"><i aria-hidden="true" class="fa-brands fa-linkedin-in"></i> LinkedIn </a>
+		<a class="link" href="https://www.linkedin.com/in/vitorwdv/" target="_blank"><i aria-hidden="true" class="fa-brands fa-linkedin-in"></i> LinkedIn </a>
 		<a class="link" href="https://www.researchgate.net/profile/Vitor-Werner-De-Vargas" target="_blank"><i aria-hidden="true" class="fa-brands fa-researchgate"></i> Research Gate </a>
 		<a class="link" href="http://lattes.cnpq.br/4358876704972743/" target="_blank"><i aria-hidden="true" class="fa-solid fa-graduation-cap"></i> Lattes (CNPq) </a>
-	        <a class="header" target="_blank"> Contato </a>
-	        <a class="link" href="mailto:vitorwdv@outlook.com" target="_blank"><i aria-hidden="true" class="fa fa-envelope"></i> E-mail </a>
+		<a class="header" target="_blank"> Contato </a>
+		<a class="link" href="mailto:vitorwdv@outlook.com" target="_blank"><i aria-hidden="true" class="fa fa-envelope"></i> E-mail </a>
 		<a class="header" target="_blank"> </a>
 		<a class="footer" target="_blank"><i aria-hidden="true" class="fa fa-map-marker"></i> São Leopoldo, RS, Brasil </a>
 	</div>
 </body>
+
+<script>
+	const translations = {
+		pt: {
+			description: "Engenheiro eletricista ⚡<br>Mestre em computação aplicada 💻<br>Gosto de tecnologia, pizza e câmbio flutuante",
+			personal: "Pessoal",
+			professional: "Profissional",
+			contact: "Contato",
+			location: "São Leopoldo, RS, Brasil"
+		},
+		en: {
+			description: "Electrical Engineer ⚡<br>Msc in Applied Computing 💻<br>I like technology, pizza and floating exchange rates",
+			personal: "Personal",
+			professional: "Professional",
+			contact: "Contact",
+			location: "Sao Leopoldo, RS, Brazil"
+		}
+	};
+
+	function toggleLanguage() {
+		const currentLang = document.documentElement.getAttribute('lang') === 'en' ? 'pt' : 'en';
+		document.documentElement.setAttribute('lang', currentLang);
+		
+		const t = translations[currentLang];
+		document.querySelector('#userName p').innerHTML = t.description;
+		document.querySelectorAll('#links .header')[0].textContent = t.personal;
+		document.querySelectorAll('#links .header')[1].textContent = t.professional;
+		document.querySelectorAll('#links .header')[2].textContent = t.contact;
+		document.querySelector('#links .footer').innerHTML = `<i aria-hidden="true" class="fa fa-map-marker"></i> ${t.location}`;
+	}
+</script>
 
 </html>

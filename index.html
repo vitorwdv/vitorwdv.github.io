@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 
 <head>
 	<meta name="google-site-verification" content="S2iMeD2okzZ_Ic37pUikzbEz9Cli7QnSCtBRDILXi1Y">
 	<meta name="openai-domain-verification" content="dv-ROeJ7iRqpIot05vLNwQgySrf">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
-	<title>Vitor Werner de Vargas</title>
+	<title>Vitor Werner de Vargas (@vitorwdv)</title>
 	<link rel="stylesheet" href="assets/style.css">
 	<link rel="stylesheet" href="assets/fontawesome-free-6.4.2-web/css/fontawesome.min.css">
 	<link rel="stylesheet" href="assets/fontawesome-free-6.4.2-web/css/brands.min.css">
@@ -20,38 +20,46 @@
 		<img id="userPhoto" src="assets/files/profile.png" alt="Profile picture">
 		<div id="userName">
 			<h1>Vitor Werner de Vargas</h1>
-			<p>Engenheiro eletricista ⚡<br>Mestre em computação aplicada 💻<br>Gosto de tecnologia, pizza e câmbio flutuante</p>
+			<p id="summary">Engenheiro eletricista ⚡<br>Mestre em computação aplicada 💻<br>Gosto de tecnologia, pizza e câmbio flutuante</p>
 		</div>
-		<button class="lang-button" onclick="toggleLanguage()">EN / PT</button>
+		<button class="lang-button" type="button" id="lang-toggle">EN / PT</button>
 	</div>
 	<div id="links">
-		<a class="header" target="_blank"> Pessoal </a>
+		<a class="header" data-i18n="personal" target="_blank"> Pessoal </a>
 		<a class="link" href="https://www.instagram.com/vitorwdv/" target="_blank"><i aria-hidden="true" class="fa-brands fa-instagram"></i> Instagram </a>
 		<a class="link" href="https://www.youtube.com/@vitorwdv" target="_blank"><i aria-hidden="true" class="fa-brands fa-youtube"></i> YouTube </a>
 		<a class="link" href="https://www.strava.com/athletes/vitorwdv" target="_blank"><i aria-hidden="true" class="fa-brands fa-strava"></i> Strava </a>
-		<a class="header" target="_blank"> Profissional & Acadêmico</a>
+		<a class="header" data-i18n="professional" target="_blank"> Profissional & Acadêmico </a>
 		<a class="link" href="https://www.linkedin.com/in/vitorwdv/" target="_blank"><i aria-hidden="true" class="fa-brands fa-linkedin-in"></i> LinkedIn </a>
 		<a class="link" href="http://lattes.cnpq.br/4358876704972743/" target="_blank"><i aria-hidden="true" class="fa-solid fa-graduation-cap"></i> Lattes (CNPq) </a>
 		<a class="link" href="https://www.researchgate.net/profile/Vitor-Werner-De-Vargas" target="_blank"><i aria-hidden="true" class="fa-brands fa-researchgate"></i> Research Gate </a>
 		<a class="link" href="https://scholar.google.com/citations?user=2M949YUAAAAJ" target="_blank"><i aria-hidden="true" class="fa-solid fa-book"></i> Google Scholar </a>
-		<a class="header" target="_blank"> Contato </a>
+		<a class="header" data-i18n="contact" target="_blank"> Contato </a>
 		<a class="link" href="mailto:vitorwdv@outlook.com" target="_blank"><i aria-hidden="true" class="fa fa-envelope"></i> E-mail </a>
 		<a class="header" target="_blank"> </a>
-		<a class="footer" target="_blank"><i aria-hidden="true" class="fa fa-map-marker"></i> São Leopoldo, RS, Brasil </a>
+		<a class="footer" target="_blank"><i aria-hidden="true" class="fa fa-map-marker"></i> <span data-i18n="location">São Leopoldo, RS, Brasil</span></a>
 	</div>
 </body>
 
 <script>
 	const translations = {
 		pt: {
-			description: "Engenheiro eletricista ⚡<br>Mestre em computação aplicada 💻<br>Gosto de tecnologia, pizza e câmbio flutuante",
+			summary: [
+				"Engenheiro eletricista ⚡",
+				"Mestre em computação aplicada 💻",
+				"Gosto de tecnologia, pizza e câmbio flutuante"
+			],
 			personal: "Pessoal",
 			professional: "Profissional & Acadêmico",
 			contact: "Contato",
 			location: "São Leopoldo, RS, Brasil"
 		},
 		en: {
-			description: "Electrical Engineer ⚡<br>Msc in Applied Computing 💻<br>I like technology, pizza and floating exchange rates",
+			summary: [
+				"Electrical Engineer ⚡",
+				"MSc in Applied Computing 💻",
+				"I like technology, pizza and floating exchange rates"
+			],
 			personal: "Personal",
 			professional: "Professional & Academic",
 			contact: "Contact",
@@ -59,17 +67,32 @@
 		}
 	};
 
-	function toggleLanguage() {
-		const currentLang = document.documentElement.getAttribute('lang') === 'en' ? 'pt' : 'en';
-		document.documentElement.setAttribute('lang', currentLang);
-		
-		const t = translations[currentLang];
-		document.querySelector('#userName p').innerHTML = t.description;
-		document.querySelectorAll('#links .header')[0].textContent = t.personal;
-		document.querySelectorAll('#links .header')[1].textContent = t.professional;
-		document.querySelectorAll('#links .header')[2].textContent = t.contact;
-		document.querySelector('#links .footer').innerHTML = `<i aria-hidden="true" class="fa fa-map-marker"></i> ${t.location}`;
+	const summary = document.getElementById('summary');
+	const translatableNodes = document.querySelectorAll('[data-i18n]');
+	const langToggle = document.getElementById('lang-toggle');
+
+	function detectPreferredLanguage() {
+		const languages = Array.isArray(navigator.languages) && navigator.languages.length > 0
+			? navigator.languages
+			: [navigator.language || 'en'];
+		return languages.some((language) => /^pt(?:-|$)/i.test(language)) ? 'pt' : 'en';
 	}
+
+	function setLanguage(lang) {
+		document.documentElement.lang = lang;
+		const t = translations[lang];
+		summary.innerHTML = t.summary.join('<br>');
+		translatableNodes.forEach((node) => {
+			node.textContent = t[node.dataset.i18n];
+		});
+	}
+
+	langToggle.addEventListener('click', () => {
+		const nextLang = document.documentElement.lang === 'en' ? 'pt' : 'en';
+		setLanguage(nextLang);
+	});
+
+	setLanguage(detectPreferredLanguage());
 </script>
 
 </html>
